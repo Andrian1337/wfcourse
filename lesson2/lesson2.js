@@ -4,3 +4,4 @@ let screenPrice = 1500;
 let percentage = 85;
 let fullPrice = 80000;
 let responsive = true;
+    
