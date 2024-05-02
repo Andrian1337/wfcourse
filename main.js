@@ -1,5 +1,5 @@
-console.log ("hello world")
+
 
 const firstName = "Nikita";
-
-console.log ("Hello", firstName)
+let age = 22
+let sity = "Saratov"
