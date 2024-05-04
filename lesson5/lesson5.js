@@ -16,46 +16,45 @@ console.log(service2);
 const servicePrice2 = parseFloat(prompt("Сколько будет стоить этот второй сервис?"));
 console.log(servicePrice2);
 
-let fullPrice = parseFloat(servicePrice1 + servicePrice2);
-console.log(fullPrice);
 
-let percentageResult = fullPrice * (percentValue / 100);
-console.log(percentageResult + " Процент подрядчику");
 
-let servicePercentPrice = fullPrice - percentageResult;
-console.log(Math.ceil(servicePercentPrice));
-
-if (fullPrice > 50000) {
-    console.log("Вам плотная скидочка 10%!");
-} else if (fullPrice > 20000 && fullPrice < 50000) {
-    console.log("Вам скидочка 5%!");
-} else if (fullPrice < 20000) {
-    console.log("Торга нет");
-} else if (fullPrice === 0 || fullPrice === 20000 || fullPrice === 50000) {
-    console.log("Приятного сервиса");
-}
 
 function getAllServicePrices() {
     return servicePrice1 + servicePrice2;
 }
 const AllServicePrices = getAllServicePrices();
 
-function getFullPrice(fullPrice) {
-    return getAllServicePrices + screenPrice;
+function getFullPrice() {
+    return AllServicePrices + screenPrice;
 }
 
-fullPrice = getFullPrice();
+let fullPrice = getFullPrice();
 
 function getTitle(titleProject) {
-    return titleProject.charAt(0).toUpperCase() + titleProject.slice(1);
+    return titleProject.charAt(0).toUpperCase() + titleProject.slice(1).toLocaleLowerCase();
 }
 const newTitleProject = getTitle(titleProject);
 console.log(newTitleProject);
 
 function getServicePercentPrices () {
+    let percentageResult = fullPrice * (percentValue / 100);
     return fullPrice - percentageResult
 }
 
-servicePercentPrice = getServicePercentPrices();
+let servicePercentPrice = getServicePercentPrices();
 
+const getRollbackMessage = () => {
+    if (fullPrice > 50000) {
+        console.log("Вам плотная скидочка 10%!");
+    } else if (fullPrice > 20000 && fullPrice < 50000) {
+        console.log("Вам скидочка 5%!");
+    } else if (fullPrice < 20000) {
+        console.log("Торга нет");
+    } else if (fullPrice === 0 || fullPrice === 20000 || fullPrice === 50000) {
+        console.log("Приятного сервиса");
+    } else {
+        console.log("Упс")
+    }
+}
 
+getRollbackMessage();
