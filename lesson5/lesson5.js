@@ -44,7 +44,7 @@ function getFullPrice(fullPrice) {
     return getAllServicePrices + screenPrice;
 }
 
-let fullPrice2 = getFullPrice();
+fullPrice = getFullPrice();
 
 function getTitle(titleProject) {
     return titleProject.charAt(0).toUpperCase() + titleProject.slice(1);
@@ -53,9 +53,9 @@ const newTitleProject = getTitle(titleProject);
 console.log(newTitleProject);
 
 function getServicePercentPrices () {
-    return fullPrice2 - percentageResult
+    return fullPrice - percentageResult
 }
 
-let servicePercentPrice2 = getServicePercentPrices();
+servicePercentPrice = getServicePercentPrices();
 
 
