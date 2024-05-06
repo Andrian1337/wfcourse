@@ -21,9 +21,10 @@ const getBotFunction = function () {
 
         if (answerNum === null) {
             alert("Вы завершили игру")
-            alert("Может хотите попробовать снова?")
-            tryNumber = 3
-            return getBotFunction();
+            if (confirm("Может хотите попробовать снова?")) {
+                tryNumber = 3
+                return getBotFunction();    
+            }
         }
 
         while (!checkIsNumber(answerNum)) {
