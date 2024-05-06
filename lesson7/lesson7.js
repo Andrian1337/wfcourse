@@ -19,6 +19,13 @@ const getBotFunction = function () {
     function promptValue() {
         let answerNum = prompt("Угадай число от 1 до 10");
 
+        if (answerNum === null) {
+            alert("Вы завершили игру")
+            alert("Может хотите попробовать снова?")
+            tryNumber = 3
+            return getBotFunction();
+        }
+
         while (!checkIsNumber(answerNum)) {
             alert("Введите корректное число");
             answerNum = prompt("Угадай число от 1 до 10");
@@ -34,14 +41,22 @@ const getBotFunction = function () {
         } else {
             tryNumber--;
             if (tryNumber > 0) {
-                alert(`Осталось ${tryNumber} попыток, попробуйте еще раз`);
+                if (mysteryNumber > answerNum) {
+                    alert("Загаданное число больше вашего ответа. Осталось попыток: " + tryNumber);
+                } else if (mysteryNumber < answerNum) {
+                    alert("Загаданное число меньше вашего ответа. Осталось попыток: " + tryNumber);
+                }
+                
                 promptValue();
             } else {
                 alert("Ваши попытки закончились. Игра закончена");
+                if (confirm("Может хотите попробовать снова?")){
+                    tryNumber = 3
+                    return getBotFunction();    
+                }
             }
         }
-    }
-
+    }    
     promptValue();
 }
 
